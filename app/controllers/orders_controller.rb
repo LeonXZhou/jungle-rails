@@ -1,7 +1,13 @@
+
 class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @cart_subtotal_cents = 0;
+
+    @order.line_items.each do |item|
+      @cart_subtotal_cents = @cart_subtotal_cents+item.total_price_cents
+    end
   end
 
   def create
