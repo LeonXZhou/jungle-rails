@@ -1,7 +1,6 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<h1>ADMIN DASHBOARD</h1>
 <div class="list-group">
-  <a href="http://localhost:3000/admin/products" class="list-group-item list-group-item-action">Product Count: <%=@product_count%></a>
-  <a href="http://localhost:3000/admin/products" class="list-group-item list-group-item-action">Pategory Count: <%=@category_count%></a>
+  <%= link_to("Product Count: #{@product_count}", admin_products_path, class:"list-group-item list-group-item-action")%>
+  <%= link_to("Category Count #{@category_count}", admin_categories_path, class:"list-group-item list-group-item-action")%>
 </div>
 
