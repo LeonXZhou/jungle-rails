@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :users
   root to: 'products#index'
-
+  
+  resources :users
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
 
@@ -18,6 +20,9 @@ Rails.application.routes.draw do
     resources :categories
   end
 
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
   get 'about' => 'about#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
