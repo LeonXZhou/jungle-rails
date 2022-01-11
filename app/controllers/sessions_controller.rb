@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
     if User.authenticate_with_credentials(params[:session][:email],params[:session][:password])
         @user = User.find_by_email(params[:session][:email])
        session[:user_id] = @user.id
+       session[:user_email] = @user.email
        redirect_to :root
     else
        redirect_to login_path, notice: "Hey wrong login info!"
